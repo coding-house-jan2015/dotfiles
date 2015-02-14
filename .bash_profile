@@ -10,11 +10,14 @@ txtrst='\[\e[0m\]'    # Text Reset
 
 GIT_PATH=/usr/local/git/bin
 NODE_PATH=/usr/local/node/bin
+MONGO_PATH=/usr/local/mongo/bin
 
 alias  l='ls -a'
 alias ll='ls -alh'
 alias  b='cd ..'
 alias  c='clear'
+alias sm='mongod --config ~/.mongo.conf'
+alias  m='mongo'
 
 branch()
 {
@@ -26,7 +29,7 @@ status()
   git status --porcelain 2> /dev/null | wc | awk '{if($1 > 0)print"+";}'
 }
 
-export PATH=$GIT_PATH:$NODE_PATH:$PATH
+export PATH=$GIT_PATH:$NODE_PATH:$MONGO_PATH:$PATH
 export EDITOR=vim
 export SHELL=/bin/bash
 export CLICOLOR=1
